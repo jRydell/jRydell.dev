@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Johan Rydell</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="terminal">
-
-    <pre class="ascii">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jRydell</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="terminal">
+      <pre class="ascii">
      ██╗ ██████╗ ██╗  ██╗ █████╗ ███╗   ██╗
      ██║██╔═══██╗██║  ██║██╔══██╗████╗  ██║
      ██║██║   ██║███████║███████║██╔██╗ ██║
@@ -21,52 +20,92 @@
     ██████╔╝ ╚████╔╝ ██║  ██║█████╗  ██║     ██║
     ██╔══██╗  ╚██╔╝  ██║  ██║██╔══╝  ██║     ██║
     ██║  ██║   ██║   ██████╔╝███████╗███████╗███████╗
-    ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚══════╝╚══════╝╚══════╝</pre>
+    ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚══════╝╚══════╝╚══════╝</pre
+      >
 
-    <div class="prompt">whoami</div>
+      <div class="prompt">whoami</div>
 
-    <div class="block" data-label="about.txt">
-      <h2>// about</h2>
-      <p>Developer comfortable across the full stack — building and experimenting with whatever it takes. Driven by curiosity, backed by AI.</p>
-    </div>
-
-    <div class="block" data-label="stack.conf">
-      <h2>// stack</h2>
-      <div class="tag-list">
-        <span class="tag">react</span>
-        <span class="tag">javascript</span>
-        <span class="tag">node.js</span>
-        <span class="tag">html</span>
-        <span class="tag">css</span>
-        <span class="tag">tailwind</span>
-        <span class="tag">docker</span>
-        <span class="tag">nginx</span>
-        <span class="tag">git</span>
-        <span class="tag">github</span>
-        <span class="tag">azure</span>
-        <span class="tag">linux</span>
-        <span class="tag">windows</span>
-        <span class="tag">mysql</span>
-        <span class="tag">mongodb</span>
-        <span class="tag">firebase</span>
-        <span class="tag">self-hosted</span>
-        <span class="tag">claude</span>
-        <span class="tag">chatgpt</span>
-        <span class="tag">vibe-coding</span>
+      <div class="block" data-label="about.txt">
+        <h2>// about</h2>
+        <p>
+          Junior developer — building and experimenting with whatever it takes.
+          Driven by curiosity, backed by AI.
+        </p>
       </div>
-    </div>
 
-    <div class="block" data-label="links.sh">
-      <h2>// find me</h2>
-      <div class="link-row">
-        <a href="https://github.com/jRydell" target="_blank" rel="noopener">github.com/jRydell</a>
-        <a href="mailto:contact@jrydell.dev">contact@jrydell.dev</a>
+      <div class="block" data-label="stack.conf">
+        <h2>// stack</h2>
+        <div class="tag-list">
+          <span class="tag">react</span>
+          <span class="tag">javascript</span>
+          <span class="tag">node.js</span>
+          <span class="tag">html</span>
+          <span class="tag">css</span>
+          <span class="tag">tailwind</span>
+          <span class="tag">docker</span>
+          <span class="tag">nginx</span>
+          <span class="tag">git</span>
+          <span class="tag">github</span>
+          <span class="tag">azure</span>
+          <span class="tag">linux</span>
+          <span class="tag">mysql</span>
+          <span class="tag">mongodb</span>
+          <span class="tag">firebase</span>
+          <span class="tag">self-hosted</span>
+        </div>
       </div>
+
+      <div class="block" data-label="projects.log">
+        <h2>// projects</h2>
+        <div class="project-list">
+          <div class="project-entry">
+            <span class="project-name">RecipeFinder</span>
+            <p>
+              Full-stack recipe app with search, reviews, ratings and saved
+              recipes. React frontend consuming a custom REST API built with
+              Node.js, Express and MySQL — recipe data from the MealDB API.
+            </p>
+            <div class="tag-list">
+              <span class="tag">react</span>
+              <span class="tag">typescript</span>
+              <span class="tag">node.js</span>
+              <span class="tag">express</span>
+              <span class="tag">mysql</span>
+              <span class="tag">shadcn/ui</span>
+              <span class="tag">zustand</span>
+              <span class="tag">zod</span>
+            </div>
+            <a
+              href="https://recipefinder.jrydell.dev"
+              target="_blank"
+              rel="noopener"
+              >recipefinder.jrydell.dev</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="block" data-label="links.sh">
+        <h2>// find me</h2>
+        <div class="link-row">
+          <a href="https://github.com/jRydell" target="_blank" rel="noopener"
+            >github.com/jRydell</a
+          >
+          <a href="mailto:contact@jrydell.dev">contact@jrydell.dev</a>
+          <a
+            href="https://linkedin.com/in/johan-rydell"
+            target="_blank"
+            rel="noopener"
+            >linkedin.com/in/johan-rydell</a
+          >
+        </div>
+      </div>
+
+      <div class="prompt">█<span class="cursor"></span></div>
+
+      <footer>
+        jrydell.dev &mdash; running on a self-hosted server, somewhere in sweden
+      </footer>
     </div>
-
-    <div class="prompt">█<span class="cursor"></span></div>
-
-    <footer>jrydell.dev &mdash; running on a self-hosted server, somewhere in sweden</footer>
-  </div>
-</body>
+  </body>
 </html>
