@@ -11,5 +11,3 @@ breaks things. fixes things. ships things.
 
 **education**
 - frontend developer, yrkeshögskola
-
-[jrydell.dev](https://jrydell.dev)
