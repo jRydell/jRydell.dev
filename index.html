@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Johan Rydell</title>
+  <style>
+    :root {
+      --green: #00ff88;
+      --dim-green: #00cc66;
+      --bg: #0a0a0a;
+      --surface: #0f0f0f;
+      --border: #1a1a1a;
+      --muted: #444;
+      --text: #ccc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .terminal {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    /* Scanline overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .ascii {
+      color: var(--green);
+      font-size: clamp(0.45rem, 1.6vw, 0.75rem);
+      line-height: 1.2;
+      white-space: pre;
+      text-shadow: 0 0 8px var(--green);
+      margin-bottom: 2.5rem;
+    }
+
+    .prompt {
+      color: var(--dim-green);
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      opacity: 0.7;
+    }
+
+    .prompt::before { content: '$ '; }
+
+    .block {
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--surface);
+      position: relative;
+    }
+
+    .block::before {
+      content: attr(data-label);
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.7rem;
+      padding: 0 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    h2 {
+      color: var(--green);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 0 6px var(--green);
+    }
+
+    p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      border: 1px solid var(--muted);
+      color: var(--muted);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      transition: all 0.2s;
+    }
+
+    .tag:hover {
+      border-color: var(--green);
+      color: var(--green);
+      text-shadow: 0 0 6px var(--green);
+    }
+
+    .link-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    a {
+      color: var(--dim-green);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      color: var(--green);
+      text-shadow: 0 0 8px var(--green);
+    }
+
+    a::before { content: '→ '; }
+
+    .cursor {
+      display: inline-block;
+      width: 0.6em;
+      height: 1em;
+      background: var(--green);
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+      box-shadow: 0 0 6px var(--green);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 480px) {
+      .ascii { font-size: 0.38rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+
+    <pre class="ascii">
+     ██╗ ██████╗ ██╗  ██╗ █████╗ ███╗   ██╗
+     ██║██╔═══██╗██║  ██║██╔══██╗████╗  ██║
+     ██║██║   ██║███████║███████║██╔██╗ ██║
+██   ██║██║   ██║██╔══██║██╔══██║██║╚██╗██║
+╚█████╔╝╚██████╔╝██║  ██║██║  ██║██║ ╚████║
+ ╚════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+    ██████╗ ██╗   ██╗██████╗ ███████╗██╗     ██╗
+    ██╔══██╗╚██╗ ██╔╝██╔══██╗██╔════╝██║     ██║
+    ██████╔╝ ╚████╔╝ ██║  ██║█████╗  ██║     ██║
+    ██╔══██╗  ╚██╔╝  ██║  ██║██╔══╝  ██║     ██║
+    ██║  ██║   ██║   ██████╔╝███████╗███████╗███████╗
+    ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚══════╝╚══════╝╚══════╝</pre>
+
+    <div class="prompt">whoami</div>
+
+    <div class="block" data-label="about.txt">
+      <h2>// about</h2>
+      <p>Developer comfortable across the full stack — building and experimenting with whatever it takes. Driven by curiosity, backed by AI.</p>
+    </div>
+
+    <div class="block" data-label="stack.conf">
+      <h2>// stack</h2>
+      <div class="tag-list">
+        <span class="tag">react</span>
+        <span class="tag">javascript</span>
+        <span class="tag">node.js</span>
+        <span class="tag">html</span>
+        <span class="tag">css</span>
+        <span class="tag">tailwind</span>
+        <span class="tag">docker</span>
+        <span class="tag">nginx</span>
+        <span class="tag">git</span>
+        <span class="tag">github</span>
+        <span class="tag">azure</span>
+        <span class="tag">linux</span>
+        <span class="tag">windows</span>
+        <span class="tag">mysql</span>
+        <span class="tag">mongodb</span>
+        <span class="tag">firebase</span>
+        <span class="tag">self-hosted</span>
+        <span class="tag">claude</span>
+        <span class="tag">chatgpt</span>
+        <span class="tag">vibe-coding</span>
+      </div>
+    </div>
+
+    <div class="block" data-label="links.sh">
+      <h2>// find me</h2>
+      <div class="link-row">
+        <a href="https://github.com/jRydell" target="_blank" rel="noopener">github.com/jRydell</a>
+        <a href="mailto:contact@jrydell.dev">contact@jrydell.dev</a>
+      </div>
+    </div>
+
+    <div class="prompt">█<span class="cursor"></span></div>
+
+    <footer>jrydell.dev &mdash; running on a self-hosted server, somewhere in sweden</footer>
+  </div>
+</body>
+</html>
