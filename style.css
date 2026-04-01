@@ -8,12 +8,16 @@
   --text: #ccc;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,15 +32,15 @@ body {
 
 /* Scanline overlay */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background: repeating-linear-gradient(
     0deg,
     transparent,
     transparent 2px,
-    rgba(0,0,0,0.03) 2px,
-    rgba(0,0,0,0.03) 4px
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
   );
   pointer-events: none;
   z-index: 999;
@@ -58,7 +62,9 @@ body::before {
   opacity: 0.7;
 }
 
-.prompt::before { content: '$ '; }
+.prompt::before {
+  content: "$ ";
+}
 
 .block {
   border: 1px solid var(--border);
@@ -117,6 +123,39 @@ p {
   text-shadow: 0 0 6px var(--green);
 }
 
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.project-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project-name {
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.project-entry .tag-list {
+  margin-top: 0;
+}
+
+.link-row a,
+.project-entry a {
+  color: var(--text);
+}
+
 .link-row {
   display: flex;
   gap: 1.5rem;
@@ -135,7 +174,9 @@ a:hover {
   text-shadow: 0 0 8px var(--green);
 }
 
-a::before { content: '→ '; }
+a::before {
+  content: "→ ";
+}
 
 .cursor {
   display: inline-block;
@@ -148,17 +189,24 @@ a::before { content: '→ '; }
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 footer {
   margin-top: 2rem;
   color: var(--muted);
   font-size: 0.7rem;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 @media (max-width: 480px) {
-  .ascii { font-size: 0.38rem; }
+  .ascii {
+    font-size: 0.38rem;
+  }
 }
