@@ -10,4 +10,4 @@ breaks things. fixes things. ships things.
 - [recipefinder.jrydell.dev](https://recipefinder.jrydell.dev) — fullstack, self-hosted
 
 **education**
-- frontend developer, yrkeshögskola
+- frontend developer, borås yrkeshögskola
